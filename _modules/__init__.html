@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>__init__ &#8212; WORKSPACE  documentation</title>
+    <title>__init__ &#8212; API  documentation</title>
     
     <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -44,7 +44,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">WORKSPACE  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">API  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &#187;</li> 
       </ul>
     </div>
@@ -69,30 +69,7 @@
           <div class="body" role="main">
             
   <h1>Source code for __init__</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Workspace: python module for handling HDF5 variables</span>
-<span class="sd">====================================================</span>
-
-<span class="sd">Main features</span>
-<span class="sd">-------------</span>
-
-<span class="sd">- Provides a set of tools for handling variables, i.e. objects being</span>
-<span class="sd">  instances of the ``Variable`` class.</span>
-
-<span class="sd">- Variables are created by default in the ``__main__`` module.</span>
-
-<span class="sd">- When running in IPython, variables are available through the</span>
-<span class="sd">  interactive namespace.</span>
-
-<span class="sd">- Each variable is paired with an associated HDF5 root group and</span>
-<span class="sd">  exposes convinient interface for it.</span>
-
-<span class="sd">- Created variables are stored in the HDF5 binary data format.</span>
-
-<span class="sd">- Explore variables using tab completion mechanism. For IPython it is</span>
-<span class="sd">  recommended to have greedy completion enabled.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">hashlib</span>
+<span></span><span class="kn">import</span> <span class="nn">hashlib</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 <span class="kn">import</span> <span class="nn">h5py</span>
@@ -152,7 +129,7 @@
 
 <div class="viewcode-block" id="fingerprint"><a class="viewcode-back" href="../index.html#__init__.fingerprint">[docs]</a><span class="k">def</span> <span class="nf">fingerprint</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Generates 40B SHA1 digest from data of specified object.</span>
+<span class="sd">    Generates 40B SHA1 digest from data of the specified object.</span>
 <span class="sd">    </span>
 <span class="sd">    Allowed object types:</span>
 <span class="sd">    </span>
@@ -169,8 +146,8 @@
 <span class="sd">        </span>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    string</span>
-<span class="sd">        40B SHA1 hexadecimal digest</span>
+<span class="sd">    **string**</span>
+<span class="sd">        40B SHA1 hexadecimal digest.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Są trzy możliwości:</span>
     <span class="c1"># a) obj to grupa hdf5</span>
@@ -377,10 +354,8 @@
 
 
 <div class="viewcode-block" id="Variable"><a class="viewcode-back" href="../index.html#__init__.Variable">[docs]</a><span class="k">class</span> <span class="nc">Variable</span><span class="p">(</span><span class="n">Group</span><span class="p">):</span>
-
     <span class="sd">&quot;&quot;&quot;Each instance of the Variable class is paired with an associated</span>
 <span class="sd">    HDF5 *root group* and exposes convinient interface for it.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 <div class="viewcode-block" id="Variable.match"><a class="viewcode-back" href="../index.html#__init__.Variable.match">[docs]</a>    <span class="k">def</span> <span class="nf">match</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;match()</span>
@@ -389,7 +364,7 @@
 <span class="sd">        </span>
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        bool</span>
+<span class="sd">        **bool**</span>
 <span class="sd">            True if there are no changes to parent of specified group, False otherwise.</span>
 <span class="sd">        </span>
 <span class="sd">        Examples</span>
@@ -402,7 +377,7 @@
 <span class="sd">        </span>
 <span class="sd">        &gt;&gt;&gt; var1.data.dset1 = [1,2,3,4]</span>
 <span class="sd">        </span>
-<span class="sd">        Create second variable named ``var2``, which is children of ``var1``::</span>
+<span class="sd">        Create second variable named ``var2``, as a children of ``var1``::</span>
 <span class="sd">        </span>
 <span class="sd">        &gt;&gt;&gt; &lt;interface_name&gt;[-1].create.basic(&quot;var2&quot;,var1)</span>
 <span class="sd">        </span>
@@ -490,7 +465,7 @@
         <li class="right" >
           <a href="../py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">WORKSPACE  documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">API  documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &#187;</li> 
       </ul>
     </div>

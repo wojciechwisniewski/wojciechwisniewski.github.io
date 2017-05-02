@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Workspace: python module for handling HDF5 variables &#8212; WORKSPACE  documentation</title>
+    <title>API Reference &#8212; API  documentation</title>
     
     <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -44,19 +44,11 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">WORKSPACE  documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">API  documentation</a> &#187;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Workspace: python module for handling HDF5 variables</a><ul>
-<li><a class="reference internal" href="#main-features">Main features</a></li>
-</ul>
-</li>
-</ul>
-
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -82,25 +74,13 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="toctree-wrapper compound">
+  <div class="section" id="api-reference">
+<h1><strong>API Reference</strong><a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>This document contains description of the programming components of <strong>Workspace</strong> Python module.</p>
+<div class="toctree-wrapper compound">
 </div>
-<span class="target" id="module-__init__"></span><div class="section" id="workspace-python-module-for-handling-hdf5-variables">
-<h1>Workspace: python module for handling HDF5 variables<a class="headerlink" href="#workspace-python-module-for-handling-hdf5-variables" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="main-features">
-<h2>Main features<a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Provides a set of tools for handling variables, i.e. objects being
-instances of the <code class="docutils literal"><span class="pre">Variable</span></code> class.</li>
-<li>Variables are created by default in the <code class="docutils literal"><span class="pre">__main__</span></code> module.</li>
-<li>When running in IPython, variables are available through the
-interactive namespace.</li>
-<li>Each variable is paired with an associated HDF5 root group and
-exposes convinient interface for it.</li>
-<li>Created variables are stored in the HDF5 binary data format.</li>
-<li>Explore variables using tab completion mechanism. For IPython it is
-recommended to have greedy completion enabled.</li>
-</ul>
-<dl class="class">
+<p><strong>__init__.py</strong></p>
+<span class="target" id="module-__init__"></span><dl class="class">
 <dt id="__init__.Group">
 <em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">Group</code><span class="sig-paren">(</span><em>group</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Contains low-level mechanisms for handling groups in HDF5.</p>
@@ -126,7 +106,7 @@ HDF5 <em>root group</em> and exposes convinient interface for it.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">bool</p>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>bool</strong></p>
 <blockquote class="last">
 <div><p>True if there are no changes to parent of specified group, False otherwise.</p>
 </div></blockquote>
@@ -143,7 +123,7 @@ HDF5 <em>root group</em> and exposes convinient interface for it.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var1</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">dset1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
-<p>Create second variable named <code class="docutils literal"><span class="pre">var2</span></code>, which is children of <code class="docutils literal"><span class="pre">var1</span></code>:</p>
+<p>Create second variable named <code class="docutils literal"><span class="pre">var2</span></code>, as a children of <code class="docutils literal"><span class="pre">var1</span></code>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">basic</span><span class="p">(</span><span class="s2">&quot;var2&quot;</span><span class="p">,</span><span class="n">var1</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -216,7 +196,7 @@ HDF5 <em>root group</em> and exposes convinient interface for it.</p>
 <dl class="function">
 <dt id="__init__.fingerprint">
 <code class="descclassname">__init__.</code><code class="descname">fingerprint</code><span class="sig-paren">(</span><em>obj=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#fingerprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.fingerprint" title="Permalink to this definition">¶</a></dt>
-<dd><p>Generates 40B SHA1 digest from data of specified object.</p>
+<dd><p>Generates 40B SHA1 digest from data of the specified object.</p>
 <p>Allowed object types:</p>
 <ul class="simple">
 <li>HDF5 group</li>
@@ -233,9 +213,9 @@ HDF5 <em>root group</em> and exposes convinient interface for it.</p>
 </div></blockquote>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">string</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>string</strong></p>
 <blockquote class="last">
-<div><p>40B SHA1 hexadecimal digest</p>
+<div><p>40B SHA1 hexadecimal digest.</p>
 </div></blockquote>
 </td>
 </tr>
@@ -302,8 +282,7 @@ otherwise get variable itself, i.e. its instance.</p>
 </table>
 </dd></dl>
 
-</div>
-</div>
+<p><strong>api.py</strong></p>
 <span class="target" id="module-api"></span><dl class="function">
 <dt id="api.add">
 <code class="descclassname">api.</code><code class="descname">add</code><span class="sig-paren">(</span><em>filename</em>, <em>mode='a'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.add" title="Permalink to this definition">¶</a></dt>
@@ -421,6 +400,7 @@ The default index is minus one, which means the last item on the list of files.<
 <dd><p>List of all variables available in the interactive namespace.</p>
 </dd></dl>
 
+</div>
 
 
           </div>
@@ -437,7 +417,7 @@ The default index is minus one, which means the last item on the list of files.<
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">WORKSPACE  documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">API  documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
