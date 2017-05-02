@@ -1,0 +1,260 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>api &#8212; WORKSPACE  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">WORKSPACE  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for api</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">_d</span>
+<span class="kn">import</span> <span class="nn">workspace</span> <span class="k">as</span> <span class="nn">_w</span>
+
+<span class="n">hdf5_files</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">HDF5Files</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">List of all HDF5 files available in the interactive namespace.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<span class="n">variables</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">Variables</span><span class="p">()</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">List of all variables available in the interactive namespace.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="add"><a class="viewcode-back" href="../index.html#api.add">[docs]</a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates or opens a HDF5 file on the hard drive and adds it to the interactive namespace.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Name of the HDF5 file.</span>
+<span class="sd">    mode : str, optional</span>
+<span class="sd">        Mode in which to open file, one of (&#39;r&#39;, &#39;r+&#39;, &#39;w&#39;, &#39;w-&#39;, &#39;x&#39;, &#39;a&#39;).</span>
+<span class="sd">        </span>
+<span class="sd">        +------------+----------------------------------------------------------+</span>
+<span class="sd">        | **r**      | Readonly, file must exist                                |</span>
+<span class="sd">        +------------+----------------------------------------------------------+</span>
+<span class="sd">        | **r+**     | Read/write, file must exist                              |</span>
+<span class="sd">        +------------+----------------------------------------------------------+</span>
+<span class="sd">        | **w**      | Create file, truncate if exists                          |</span>
+<span class="sd">        +------------+----------------------------------------------------------+</span>
+<span class="sd">        | **w- or x**| Create file, fail if exists                              |</span>
+<span class="sd">        +------------+----------------------------------------------------------+</span>
+<span class="sd">        | **a**      | Read/write if exists, create otherwise (**default**)     |</span>
+<span class="sd">        +------------+----------------------------------------------------------+</span>
+<span class="sd">        </span>
+<span class="sd">    Notes</span>
+<span class="sd">    ------</span>
+<span class="sd">    Based on ``h5py.File()``.</span>
+<span class="sd">    The root group is automatically created when the HDF5 file is created.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    Add a sample file to the interactive namespace::</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;.add(&quot;example.h5&quot;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span>                                         
+        <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;w-&#39;</span>
+
+    <span class="c1"># Ponowne otwarcie uprzednio otwartego pliku nie generuje</span>
+    <span class="c1"># błędu</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
+    <span class="c1"># Usuń i dodaj aby elementy listy lof występowały w</span>
+    <span class="c1"># kolejności dodawania plików do zasobów</span>
+    <span class="k">if</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="p">:</span>
+        <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+    <span class="n">_w</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="clear"><a class="viewcode-back" href="../index.html#api.clear">[docs]</a><span class="k">def</span> <span class="nf">clear</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Closes all open HDF5 files and removes them from the interactive namespace.</span>
+<span class="sd">    Files are not physically deleted form the hard drive, but rather deleted from current interactive namespace.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    ------</span>
+<span class="sd">    Based on ``h5py.File()``.</span>
+<span class="sd">    </span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    Clears current interactive namespace::</span>
+
+<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;.clear()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+    <span class="n">_w</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="close"><a class="viewcode-back" href="../index.html#api.close">[docs]</a><span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="n">obj</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;close(obj=-1)</span>
+<span class="sd">    Closes HDF5 file with selected index and removes it from the interactive namespace.</span>
+<span class="sd">    The default index is minus one, which means the last item on the list of files.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    ------</span>
+<span class="sd">    Based on ``h5py.File()``.</span>
+<span class="sd">    </span>
+<span class="sd">    This method does not guarantee that the file will be correctly saved. To ensure no data corruption, ``api.flush()`` should be called after ``api.close()``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    Add a sample file to the interactive namespace::</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;.add(&quot;example.h5&quot;)</span>
+<span class="sd">        </span>
+<span class="sd">    File *&quot;example.h5&quot;* is present in interactive namespace with index = -1. </span>
+<span class="sd">    </span>
+<span class="sd">    In order to close this file and remove from the interactive namespace we need to call ``api.close()`` method on ``&lt;interface_name&gt;[file_index]`` file object:: </span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;[-1].close()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    
+    <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">_w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">_w</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="flush"><a class="viewcode-back" href="../index.html#api.flush">[docs]</a><span class="k">def</span> <span class="nf">flush</span><span class="p">(</span><span class="n">obj</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;flush(obj=-1)</span>
+<span class="sd">    Forces data in HDF5 file to be copied from the memory buffer and saved on the hard drive.</span>
+<span class="sd">    The default index is minus one, which means the last item on the list of files.</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    ------</span>
+<span class="sd">    Based on ``h5py.File()``.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    ---------</span>
+<span class="sd">    Close selected file::</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;[file_index].close()</span>
+<span class="sd">        </span>
+<span class="sd">    Ensure that it&#39;s data is saved on the hard drive::</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;[file_index].flush()</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="p">[</span><span class="n">_w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
+
+
+<span class="k">def</span> <span class="nf">_template</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">create_variable</span><span class="p">(</span><span class="n">obj</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="p">[</span><span class="n">_w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">_index</span><span class="p">)]</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">f</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="p">[</span><span class="n">_w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span><span class="o">.</span><span class="n">lower</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span>
+                <span class="n">_d</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y_%m_</span><span class="si">%d</span><span class="s1">_%H_%M_%S&#39;</span><span class="p">))</span>
+
+        <span class="bp">cls</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">create_group</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">_w</span><span class="o">.</span><span class="n">fingerprint</span><span class="p">(</span><span class="n">parent</span><span class="p">))</span>
+
+        <span class="n">_w</span><span class="o">.</span><span class="n">update</span><span class="p">()</span>
+
+        <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">_w</span><span class="o">.</span><span class="n">interactive_namespace</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">create_variable</span>
+
+
+<span class="c1">#for _cls in _w.list_of_variables:</span>
+<span class="c1">#    vars()[_w.create_fcn_name(_cls)] = _template(_cls)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">WORKSPACE  documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Module code</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Wojciech Wiśniewski.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>

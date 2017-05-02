@@ -1,0 +1,12 @@
+.. WORKSPACE documentation master file, created by
+   sphinx-quickstart on Sun Mar 26 18:07:41 2017.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. automodule:: __init__
+   :members:
+   
+.. automodule:: api
+   :members:

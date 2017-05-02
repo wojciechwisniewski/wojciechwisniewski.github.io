@@ -1,0 +1,15 @@
+.. WORKSPACE documentation master file, created by
+   sphinx-quickstart on Sun Mar 26 18:07:41 2017.
+
+H5PY Ipython workspace - python module for handling HDF5 variables in iPython console
+=====================================================================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. automodule:: api
+   :members:
+
+.. automodule:: __init__
+   :members:
