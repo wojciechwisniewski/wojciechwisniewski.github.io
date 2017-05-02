@@ -1,0 +1,448 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Workspace: python module for handling HDF5 variables &#8212; WORKSPACE  documentation</title>
+    
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">WORKSPACE  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Workspace: python module for handling HDF5 variables</a><ul>
+<li><a class="reference internal" href="#main-features">Main features</a></li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<span class="target" id="module-__init__"></span><div class="section" id="workspace-python-module-for-handling-hdf5-variables">
+<h1>Workspace: python module for handling HDF5 variables<a class="headerlink" href="#workspace-python-module-for-handling-hdf5-variables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="main-features">
+<h2>Main features<a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Provides a set of tools for handling variables, i.e. objects being
+instances of the <code class="docutils literal"><span class="pre">Variable</span></code> class.</li>
+<li>Variables are created by default in the <code class="docutils literal"><span class="pre">__main__</span></code> module.</li>
+<li>When running in IPython, variables are available through the
+interactive namespace.</li>
+<li>Each variable is paired with an associated HDF5 root group and
+exposes convinient interface for it.</li>
+<li>Created variables are stored in the HDF5 binary data format.</li>
+<li>Explore variables using tab completion mechanism. For IPython it is
+recommended to have greedy completion enabled.</li>
+</ul>
+<dl class="class">
+<dt id="__init__.Group">
+<em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">Group</code><span class="sig-paren">(</span><em>group</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains low-level mechanisms for handling groups in HDF5.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="__init__.HDF5Files">
+<em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">HDF5Files</code><a class="reference internal" href="_modules/__init__.html#HDF5Files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.HDF5Files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serves as an interface for list of open HDF5 files.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="__init__.Variable">
+<em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">Variable</code><span class="sig-paren">(</span><em>group</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Variable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Each instance of the Variable class is paired with an associated
+HDF5 <em>root group</em> and exposes convinient interface for it.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="__init__.Variable.match">
+<code class="descname">match</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Variable.match"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Variable.match" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks whether parent of group associated with specified variable has been modified.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">bool</p>
+<blockquote class="last">
+<div><p>True if there are no changes to parent of specified group, False otherwise.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Add example variable (named <code class="docutils literal"><span class="pre">var1</span></code>) to the HDF5 file with index = -1 on the list of files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">basic</span><span class="p">(</span><span class="s2">&quot;var1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In variable <code class="docutils literal"><span class="pre">var1</span></code> create dataset named <code class="docutils literal"><span class="pre">dset1</span></code>, which contains some numerical data:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var1</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">dset1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Create second variable named <code class="docutils literal"><span class="pre">var2</span></code>, which is children of <code class="docutils literal"><span class="pre">var1</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">basic</span><span class="p">(</span><span class="s2">&quot;var2&quot;</span><span class="p">,</span><span class="n">var1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>As for now, if we call <code class="docutils literal"><span class="pre">match()</span></code> method on <code class="docutils literal"><span class="pre">var2</span></code>, it will return True, as the <code class="docutils literal"><span class="pre">var1</span></code> is up-to-date:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var2</span><span class="o">.</span><span class="n">match</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>True</strong></p>
+<p>If <code class="docutils literal"><span class="pre">var1</span></code> will be modified (i.e. by adding another dataset to it, named <code class="docutils literal"><span class="pre">dset2</span></code>):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var1</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">dset2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then <code class="docutils literal"><span class="pre">var1</span></code> variable will not be up-to-date, and <code class="docutils literal"><span class="pre">match()</span></code> method called on <code class="docutils literal"><span class="pre">var2</span></code> will return false:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var2</span><span class="o">.</span><span class="n">match</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>False</strong></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="__init__.Variable.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Variable.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Variable.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes variable from the interactive namespace and removes group paired with this variable from the HDF5 file.</p>
+<p class="rubric">Examples</p>
+<p>Add example variable (named <code class="docutils literal"><span class="pre">var1</span></code>) to the HDF5 file with index = -1 on the list of files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">basic</span><span class="p">(</span><span class="s2">&quot;var1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Remove <code class="docutils literal"><span class="pre">var1</span></code>, by calling <code class="docutils literal"><span class="pre">remove()</span></code> method on it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var1</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="__init__.Variable.rename">
+<code class="descname">rename</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Variable.rename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Variable.rename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Renames variable in the interactive namespace and HDF5 group associated to it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>name</strong> : str</p>
+<blockquote class="last">
+<div><p>New name of the HDF5 group.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<p>Add example variable (named <code class="docutils literal"><span class="pre">var1</span></code>) to the HDF5 file with index = -1 on the list of files:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">create</span><span class="o">.</span><span class="n">basic</span><span class="p">(</span><span class="s2">&quot;var1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Rename <code class="docutils literal"><span class="pre">var1</span></code> to <code class="docutils literal"><span class="pre">var2</span></code>, by calling <code class="docutils literal"><span class="pre">rename()</span></code> method on it:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">var1</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;var2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="__init__.Variables">
+<em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">Variables</code><a class="reference internal" href="_modules/__init__.html#Variables"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Serves as an interface for the list of created variables.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="__init__.fingerprint">
+<code class="descclassname">__init__.</code><code class="descname">fingerprint</code><span class="sig-paren">(</span><em>obj=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#fingerprint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.fingerprint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates 40B SHA1 digest from data of specified object.</p>
+<p>Allowed object types:</p>
+<ul class="simple">
+<li>HDF5 group</li>
+<li>IVar class</li>
+<li>None</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>obj</strong> : {None|Ivar class|HDF5 group}</p>
+<blockquote>
+<div><p>Object available in the interactive namespace.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">string</p>
+<blockquote class="last">
+<div><p>40B SHA1 hexadecimal digest</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="__init__.get">
+<code class="descclassname">__init__.</code><code class="descname">get</code><span class="sig-paren">(</span><em>group</em>, <em>default=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#get"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>By default get name of the variable associated with group,
+otherwise get variable itself, i.e. its instance.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>group</strong> : obj</p>
+<blockquote>
+<div><p>Specified HDF5 group.</p>
+</div></blockquote>
+<p><strong>default</strong> : bool</p>
+<blockquote>
+<div><p>Indicates whether this method additionally returns instance of the variable associated with group.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>name</strong> : string</p>
+<blockquote class="last">
+<div><p>Name of the variable associated with specified HDF5 group.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="__init__.index">
+<code class="descclassname">__init__.</code><code class="descname">index</code><span class="sig-paren">(</span><em>obj</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an index of the specified object(s).</p>
+<p>Allowed object types:</p>
+<ul class="simple">
+<li>index or range of indexes (int or slice)</li>
+<li>HDF5 file name (string)</li>
+<li>h5py file object</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>obj</strong> : {int|slice|string|h5py file object}</p>
+<blockquote>
+<div><p>Object available in the interactive namespace.</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><strong>index</strong> : int</p>
+<blockquote class="last">
+<div><p>Index of specified object.</p>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+</div>
+<span class="target" id="module-api"></span><dl class="function">
+<dt id="api.add">
+<code class="descclassname">api.</code><code class="descname">add</code><span class="sig-paren">(</span><em>filename</em>, <em>mode='a'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates or opens a HDF5 file on the hard drive and adds it to the interactive namespace.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>filename</strong> : str</p>
+<blockquote>
+<div><p>Name of the HDF5 file.</p>
+</div></blockquote>
+<p><strong>mode</strong> : str, optional</p>
+<blockquote class="last">
+<div><p>Mode in which to open file, one of (&#8216;r&#8217;, &#8216;r+&#8217;, &#8216;w&#8217;, &#8216;w-&#8216;, &#8216;x&#8217;, &#8216;a&#8217;).</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="83%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><strong>r</strong></td>
+<td>Readonly, file must exist</td>
+</tr>
+<tr class="row-even"><td><strong>r+</strong></td>
+<td>Read/write, file must exist</td>
+</tr>
+<tr class="row-odd"><td><strong>w</strong></td>
+<td>Create file, truncate if exists</td>
+</tr>
+<tr class="row-even"><td><strong>w- or x</strong></td>
+<td>Create file, fail if exists</td>
+</tr>
+<tr class="row-odd"><td><strong>a</strong></td>
+<td>Read/write if exists, create otherwise (<strong>default</strong>)</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Based on <code class="docutils literal"><span class="pre">h5py.File()</span></code>.
+The root group is automatically created when the HDF5 file is created.</p>
+<p class="rubric">Examples</p>
+<p>Add a sample file to the interactive namespace:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;example.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.clear">
+<code class="descclassname">api.</code><code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes all open HDF5 files and removes them from the interactive namespace.
+Files are not physically deleted form the hard drive, but rather deleted from current interactive namespace.</p>
+<p class="rubric">Notes</p>
+<p>Based on <code class="docutils literal"><span class="pre">h5py.File()</span></code>.</p>
+<p class="rubric">Examples</p>
+<p>Clears current interactive namespace:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;.</span><span class="n">clear</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.close">
+<code class="descclassname">api.</code><code class="descname">close</code><span class="sig-paren">(</span><em>obj=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes HDF5 file with selected index and removes it from the interactive namespace.
+The default index is minus one, which means the last item on the list of files.</p>
+<p class="rubric">Notes</p>
+<p>Based on <code class="docutils literal"><span class="pre">h5py.File()</span></code>.</p>
+<p>This method does not guarantee that the file will be correctly saved. To ensure no data corruption, <code class="docutils literal"><span class="pre">api.flush()</span></code> should be called after <code class="docutils literal"><span class="pre">api.close()</span></code>.</p>
+<p class="rubric">Examples</p>
+<p>Add a sample file to the interactive namespace:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;.</span><span class="n">add</span><span class="p">(</span><span class="s2">&quot;example.h5&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>File <em>&#8220;example.h5&#8221;</em> is present in interactive namespace with index = -1.</p>
+<p>In order to close this file and remove from the interactive namespace we need to call <code class="docutils literal"><span class="pre">api.close()</span></code> method on <code class="docutils literal"><span class="pre">&lt;interface_name&gt;[file_index]</span></code> file object:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="api.flush">
+<code class="descclassname">api.</code><code class="descname">flush</code><span class="sig-paren">(</span><em>obj=-1</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forces data in HDF5 file to be copied from the memory buffer and saved on the hard drive.
+The default index is minus one, which means the last item on the list of files.</p>
+<p class="rubric">Notes</p>
+<p>Based on <code class="docutils literal"><span class="pre">h5py.File()</span></code>.</p>
+<p class="rubric">Examples</p>
+<p>Close selected file:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="n">file_index</span><span class="p">]</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Ensure that it&#8217;s data is saved on the hard drive:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="o">&lt;</span><span class="n">interface_name</span><span class="o">&gt;</span><span class="p">[</span><span class="n">file_index</span><span class="p">]</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="data">
+<dt id="api.hdf5_files">
+<code class="descclassname">api.</code><code class="descname">hdf5_files</code><em class="property"> = &lt;sphinx.ext.autodoc.HDF5Files object&gt;</em><a class="headerlink" href="#api.hdf5_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all HDF5 files available in the interactive namespace.</p>
+</dd></dl>
+
+<dl class="data">
+<dt id="api.variables">
+<code class="descclassname">api.</code><code class="descname">variables</code><em class="property"> = &lt;sphinx.ext.autodoc.Variables object&gt;</em><a class="headerlink" href="#api.variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all variables available in the interactive namespace.</p>
+</dd></dl>
+
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">WORKSPACE  documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Wojciech Wiśniewski.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.3.
+    </div>
+  </body>
+</html>
