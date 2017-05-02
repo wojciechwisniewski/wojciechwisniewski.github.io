@@ -3,7 +3,7 @@
 
 **API Reference**
 -----------------
-This document contains description of the programming components of **Workspace** Python module.
+This document contains description of the programming components used in **Workspace** Python module.
    
 .. toctree::
    :maxdepth: 2
