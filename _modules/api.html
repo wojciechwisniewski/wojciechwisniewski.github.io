@@ -69,19 +69,22 @@
           <div class="body" role="main">
             
   <h1>Source code for api</h1><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">_d</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:Object: **variables**: List of all variables available in the interactive namespace.</span>
+
+<span class="sd">Instance of ``__init__.Variables``.</span>
+
+<span class="sd">:Object: **hdf5_files**: List of all HDF5 files available in the interactive namespace.</span>
+
+<span class="sd">Instance of ``__init__.HDF5Files``.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">_d</span>
 <span class="kn">import</span> <span class="nn">workspace</span> <span class="k">as</span> <span class="nn">_w</span>
 
 <span class="n">hdf5_files</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">HDF5Files</span><span class="p">()</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">List of all HDF5 files available in the interactive namespace.</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-
 <span class="n">variables</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">Variables</span><span class="p">()</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">List of all variables available in the interactive namespace.</span>
-<span class="sd">&quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="add"><a class="viewcode-back" href="../index.html#api.add">[docs]</a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>

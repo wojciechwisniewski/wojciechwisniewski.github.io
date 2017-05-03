@@ -3,19 +3,48 @@
 
 **API Reference**
 -----------------
-This document contains description of the programming components used in **Workspace** Python module.
-   
+This document contains description of the programming components used in the **Workspace** Python module.
+
+------------
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
 **__init__.py**
+---------------
    
 .. automodule:: __init__
    :members:
 
-**api.py**
-
+------------
    
+**api.py**
+----------
+
 .. automodule:: api
+   :members:
+
+------------
+   
+**ui.py**
+---------
+
+.. automodule:: ui
+   :members:
+
+------------
+   
+**variables/__init__.py**
+-------------------------
+
+.. automodule:: variables.__init__
+   :members:
+
+------------
+   
+**variables/basic.py**
+----------------------
+
+.. automodule:: variables.basic
    :members:

@@ -49,6 +49,16 @@
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>API Reference</strong></a></li>
+<li><a class="reference internal" href="#module-__init__"><strong>__init__.py</strong></a></li>
+<li><a class="reference internal" href="#module-api"><strong>api.py</strong></a></li>
+<li><a class="reference internal" href="#module-ui"><strong>ui.py</strong></a></li>
+<li><a class="reference internal" href="#module-variables.__init__"><strong>variables/__init__.py</strong></a></li>
+<li><a class="reference internal" href="#module-variables.basic"><strong>variables/basic.py</strong></a></li>
+</ul>
+
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -76,11 +86,14 @@
             
   <div class="section" id="api-reference">
 <h1><strong>API Reference</strong><a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
-<p>This document contains description of the programming components used in <strong>Workspace</strong> Python module.</p>
+<p>This document contains description of the programming components used in the <strong>Workspace</strong> Python module.</p>
+<hr class="docutils" />
 <div class="toctree-wrapper compound">
 </div>
-<p><strong>__init__.py</strong></p>
-<span class="target" id="module-__init__"></span><dl class="class">
+</div>
+<div class="section" id="module-__init__">
+<span id="init-py"></span><h1><strong>__init__.py</strong><a class="headerlink" href="#module-__init__" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
 <dt id="__init__.Group">
 <em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">Group</code><span class="sig-paren">(</span><em>group</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Group"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Contains low-level mechanisms for handling groups in HDF5.</p>
@@ -96,7 +109,7 @@
 <dt id="__init__.Variable">
 <em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">Variable</code><span class="sig-paren">(</span><em>group</em>, <em>parent=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/__init__.html#Variable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.Variable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Each instance of the Variable class is paired with an associated
-HDF5 <em>root group</em> and exposes convinient interface for it.</p>
+HDF5 <em>root group</em> and exposes convenient interface for it.</p>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="__init__.Variable.match">
@@ -282,8 +295,29 @@ otherwise get variable itself, i.e. its instance.</p>
 </table>
 </dd></dl>
 
-<p><strong>api.py</strong></p>
-<span class="target" id="module-api"></span><dl class="function">
+</div>
+<hr class="docutils" />
+<div class="section" id="module-api">
+<span id="api-py"></span><h1><strong>api.py</strong><a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Object:</th><td class="field-body"><strong>variables</strong>: List of all variables available in the interactive namespace.</td>
+</tr>
+</tbody>
+</table>
+<p>Instance of <code class="docutils literal"><span class="pre">__init__.Variables</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Object:</th><td class="field-body"><strong>hdf5_files</strong>: List of all HDF5 files available in the interactive namespace.</td>
+</tr>
+</tbody>
+</table>
+<p>Instance of <code class="docutils literal"><span class="pre">__init__.HDF5Files</span></code>.</p>
+<dl class="function">
 <dt id="api.add">
 <code class="descclassname">api.</code><code class="descname">add</code><span class="sig-paren">(</span><em>filename</em>, <em>mode='a'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates or opens a HDF5 file on the hard drive and adds it to the interactive namespace.</p>
@@ -388,16 +422,92 @@ The default index is minus one, which means the last item on the list of files.<
 </div>
 </dd></dl>
 
-<dl class="data">
-<dt id="api.hdf5_files">
-<code class="descclassname">api.</code><code class="descname">hdf5_files</code><em class="property"> = &lt;sphinx.ext.autodoc.HDF5Files object&gt;</em><a class="headerlink" href="#api.hdf5_files" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of all HDF5 files available in the interactive namespace.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="module-ui">
+<span id="ui-py"></span><h1><strong>ui.py</strong><a class="headerlink" href="#module-ui" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="ui.HDF5File">
+<em class="property">class </em><code class="descclassname">ui.</code><code class="descname">HDF5File</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#HDF5File"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.HDF5File" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports functions from api.py and serves as an interface for end user.</p>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="ui.HDF5File.close">
+<code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#HDF5File.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.HDF5File.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <strong>api.close()</strong>.</p>
 </dd></dl>
 
-<dl class="data">
-<dt id="api.variables">
-<code class="descclassname">api.</code><code class="descname">variables</code><em class="property"> = &lt;sphinx.ext.autodoc.Variables object&gt;</em><a class="headerlink" href="#api.variables" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of all variables available in the interactive namespace.</p>
+<dl class="method">
+<dt id="ui.HDF5File.flush">
+<code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#HDF5File.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.HDF5File.flush" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <strong>api.flush()</strong>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="ui.Interface">
+<em class="property">class </em><code class="descclassname">ui.</code><code class="descname">Interface</code><a class="reference internal" href="_modules/ui.html#Interface"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.Interface" title="Permalink to this definition">¶</a></dt>
+<dd><p>Imports functions from api.py and serves as an interface for end user.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Object:</th><td class="field-body"><strong>vars</strong>: List of all variables available in the interactive namespace.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="ui.Interface.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>filename</em>, <em>mode='a'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#Interface.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.Interface.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <strong>api.add()</strong>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="ui.Interface.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#Interface.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.Interface.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias of <strong>api.clear()</strong>.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<hr class="docutils" />
+<div class="section" id="module-variables.__init__">
+<span id="variables-init-py"></span><h1><strong>variables/__init__.py</strong><a class="headerlink" href="#module-variables.__init__" title="Permalink to this headline">¶</a></h1>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Object:</th><td class="field-body"><strong>list_of_variables</strong>: List of classes containing available variable types.</td>
+</tr>
+</tbody>
+</table>
+<p>Adding class (which defines variable type) to this list, makes it possible to use this variable type in the Workspace.</p>
+<p><strong>Notes</strong></p>
+<p>This mechanism allows users to create their own variable types.</p>
+<p>This is profitable in cases when additional custom attributes are needed.</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="module-variables.basic">
+<span id="variables-basic-py"></span><h1><strong>variables/basic.py</strong><a class="headerlink" href="#module-variables.basic" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="variables.basic.Basic">
+<em class="property">class </em><code class="descclassname">variables.basic.</code><code class="descname">Basic</code><a class="reference internal" href="_modules/variables/basic.html#Basic"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#variables.basic.Basic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Contains definition of <code class="docutils literal"><span class="pre">Basic</span></code> variable type.
+This type provides following attributes:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">parent</span></code>: parent of group associated with selected variable</li>
+<li><code class="docutils literal"><span class="pre">created</span></code>: datetime of variable creation</li>
+</ul>
+<p class="rubric">Methods</p>
+<dl class="staticmethod">
+<dt id="variables.basic.Basic.create">
+<em class="property">static </em><code class="descname">create</code><span class="sig-paren">(</span><em>group</em>, <em>parent</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/variables/basic.html#Basic.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#variables.basic.Basic.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates <code class="docutils literal"><span class="pre">Basic</span></code> variable.</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
