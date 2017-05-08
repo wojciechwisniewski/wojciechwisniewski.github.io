@@ -77,8 +77,6 @@
 <span class="kn">from</span> <span class="nn">IPython</span> <span class="k">import</span> <span class="n">get_ipython</span>
 
 <span class="kn">from</span> <span class="nn">workspace.variables</span> <span class="k">import</span> <span class="n">list_of_variables</span>
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">_d</span>
-<span class="kn">import</span> <span class="nn">workspace</span> <span class="k">as</span> <span class="nn">_w</span>
 
 <span class="c1"># Interactive namespace</span>
 <span class="n">interactive_namespace</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="s1">&#39;__main__&#39;</span><span class="p">]</span>
@@ -90,10 +88,13 @@
 <span class="c1"># Hidden attributes</span>
 <span class="n">hidden_attributes</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="s1">&#39;parent&#39;</span><span class="p">,</span> <span class="s1">&#39;create&#39;</span><span class="p">]</span>
 
+<span class="c1"># Compression settings</span>
+<span class="n">compression</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;chunks&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;compression&#39;</span><span class="p">:</span> <span class="s2">&quot;lzf&quot;</span><span class="p">,</span> <span class="s1">&#39;shuffle&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+
 
 <div class="viewcode-block" id="HDF5Files"><a class="viewcode-back" href="../index.html#__init__.HDF5Files">[docs]</a><span class="k">class</span> <span class="nc">HDF5Files</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Serves as an interface for list of open HDF5 files.</span>
+<span class="sd">    Serves as an interface for the list of open HDF5 files.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">lof</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
@@ -108,9 +109,9 @@
 
 
 <div class="viewcode-block" id="Variables"><a class="viewcode-back" href="../index.html#__init__.Variables">[docs]</a><span class="k">class</span> <span class="nc">Variables</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">    Serves as an interface for the list of created variables.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    &#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">interactive_namespace</span><span class="p">,</span> <span class="n">lon</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
 
@@ -128,7 +129,8 @@
 
 
 <div class="viewcode-block" id="fingerprint"><a class="viewcode-back" href="../index.html#__init__.fingerprint">[docs]</a><span class="k">def</span> <span class="nf">fingerprint</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;fingerprint(obj=None)</span>
+<span class="sd">    </span>
 <span class="sd">    Generates 40B SHA1 digest from data of the specified object.</span>
 <span class="sd">    </span>
 <span class="sd">    Allowed object types:</span>
@@ -149,10 +151,6 @@
 <span class="sd">    **string**</span>
 <span class="sd">        40B SHA1 hexadecimal digest.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Są trzy możliwości:</span>
-    <span class="c1"># a) obj to grupa hdf5</span>
-    <span class="c1"># b) obj to klasa IVar</span>
-    <span class="c1"># c) obj to None</span>
     <span class="k">if</span> <span class="n">obj</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">40</span><span class="o">*</span><span class="s1">&#39;0&#39;</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">Group</span><span class="p">):</span>
@@ -304,7 +302,6 @@
 
 <div class="viewcode-block" id="Group"><a class="viewcode-back" href="../index.html#__init__.Group">[docs]</a><span class="k">class</span> <span class="nc">Group</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Contains low-level mechanisms for handling groups in HDF5.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="s1">&#39;group&#39;</span><span class="p">,</span> <span class="n">group</span><span class="p">)</span>
@@ -338,7 +335,9 @@
         <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">value</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">compression</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;klucz=</span><span class="si">{}</span><span class="s1">, wartosc=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">compression</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">create_dataset</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="o">**</span><span class="n">compression</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">Variable</span><span class="p">):</span>
@@ -399,8 +398,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">fingerprint</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span></div>
 
-
-<div class="viewcode-block" id="Variable.remove"><a class="viewcode-back" href="../index.html#__init__.Variable.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>        
+<div class="viewcode-block" id="Variable.remove"><a class="viewcode-back" href="../index.html#__init__.Variable.remove">[docs]</a>    <span class="k">def</span> <span class="nf">remove</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;remove()</span>
 
 <span class="sd">        Removes variable from the interactive namespace and removes group paired with this variable from the HDF5 file.</span>
@@ -437,7 +435,6 @@
 <span class="sd">        </span>
 <span class="sd">        &gt;&gt;&gt; var1.rename(&quot;var2&quot;)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        
         <span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">)</span>
         <span class="n">update</span><span class="p">()</span></div></div>
 

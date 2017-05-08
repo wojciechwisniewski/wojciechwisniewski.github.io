@@ -78,13 +78,26 @@
 
 <span class="sd">Instance of ``__init__.HDF5Files``.</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">:Object: **compression**: Dictionary that contains dataset compression parameters.</span>
 
+<span class="sd">Available parameters:</span>
+
+<span class="sd">- chunks (default = ``True``)</span>
+
+<span class="sd">- compression (default = ``lzf``)</span>
+
+<span class="sd">- shuffle (default = ``True``)</span>
+
+<span class="sd">Detailed information on dataset compression can be found in `h5py dataset documentation &lt;http://docs.h5py.org/en/latest/high/dataset.html&gt;`_.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">_d</span>
 <span class="kn">import</span> <span class="nn">workspace</span> <span class="k">as</span> <span class="nn">_w</span>
 
 <span class="n">hdf5_files</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">HDF5Files</span><span class="p">()</span>
 <span class="n">variables</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">Variables</span><span class="p">()</span>
+<span class="n">compression</span> <span class="o">=</span> <span class="n">_w</span><span class="o">.</span><span class="n">compression</span>
+
 
 <div class="viewcode-block" id="add"><a class="viewcode-back" href="../index.html#api.add">[docs]</a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -120,7 +133,6 @@
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;.add(&quot;example.h5&quot;)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span>                                         
         <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;w-&#39;</span>
 
@@ -152,7 +164,6 @@
 
 <span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;.clear()</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -168,7 +179,7 @@
 <span class="sd">    ------</span>
 <span class="sd">    Based on ``h5py.File()``.</span>
 <span class="sd">    </span>
-<span class="sd">    This method does not guarantee that the file will be correctly saved. To ensure no data corruption, ``api.flush()`` should be called after ``api.close()``.</span>
+<span class="sd">    This method does not guarantee that the file will be correctly saved. To ensure no data corruption, ``api.flush()`` should be called before ``api.close()``.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    ---------</span>
@@ -182,8 +193,6 @@
 <span class="sd">    </span>
 <span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;[-1].close()</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    
-    
     <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">_w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="n">_w</span><span class="o">.</span><span class="n">update</span><span class="p">()</span></div>
 
@@ -199,15 +208,15 @@
 <span class="sd">    </span>
 <span class="sd">    Examples</span>
 <span class="sd">    ---------</span>
-<span class="sd">    Close selected file::</span>
+<span class="sd">    Ensure that data from the selected HDF5 file is saved on the hard drive::</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;[file_index].flush()</span>
+<span class="sd">    </span>
+<span class="sd">    Close it::</span>
 <span class="sd">        </span>
 <span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;[file_index].close()</span>
 <span class="sd">        </span>
-<span class="sd">    Ensure that it&#39;s data is saved on the hard drive::</span>
-<span class="sd">    </span>
-<span class="sd">    &gt;&gt;&gt; &lt;interface_name&gt;[file_index].flush()</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-
     <span class="n">_w</span><span class="o">.</span><span class="n">lof</span><span class="p">[</span><span class="n">_w</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span></div>
 
 

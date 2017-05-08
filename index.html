@@ -102,7 +102,7 @@
 <dl class="class">
 <dt id="__init__.HDF5Files">
 <em class="property">class </em><code class="descclassname">__init__.</code><code class="descname">HDF5Files</code><a class="reference internal" href="_modules/__init__.html#HDF5Files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#__init__.HDF5Files" title="Permalink to this definition">¶</a></dt>
-<dd><p>Serves as an interface for list of open HDF5 files.</p>
+<dd><p>Serves as an interface for the list of open HDF5 files.</p>
 </dd></dl>
 
 <dl class="class">
@@ -317,6 +317,21 @@ otherwise get variable itself, i.e. its instance.</p>
 </tbody>
 </table>
 <p>Instance of <code class="docutils literal"><span class="pre">__init__.HDF5Files</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Object:</th><td class="field-body"><strong>compression</strong>: Dictionary that contains dataset compression parameters.</td>
+</tr>
+</tbody>
+</table>
+<p>Available parameters:</p>
+<ul class="simple">
+<li>chunks (default = <code class="docutils literal"><span class="pre">True</span></code>)</li>
+<li>compression (default = <code class="docutils literal"><span class="pre">lzf</span></code>)</li>
+<li>shuffle (default = <code class="docutils literal"><span class="pre">True</span></code>)</li>
+</ul>
+<p>Detailed information on dataset compression can be found in <a class="reference external" href="http://docs.h5py.org/en/latest/high/dataset.html">h5py dataset documentation</a>.</p>
 <dl class="function">
 <dt id="api.add">
 <code class="descclassname">api.</code><code class="descname">add</code><span class="sig-paren">(</span><em>filename</em>, <em>mode='a'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.add" title="Permalink to this definition">¶</a></dt>
@@ -434,13 +449,13 @@ The default index is minus one, which means the last item on the list of files.<
 <dl class="method">
 <dt id="ui.HDF5File.close">
 <code class="descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#HDF5File.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.HDF5File.close" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias of <strong>api.close()</strong>.</p>
+<dd><p>Alias of <code class="docutils literal"><span class="pre">api.close()</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ui.HDF5File.flush">
 <code class="descname">flush</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#HDF5File.flush"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.HDF5File.flush" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias of <strong>api.flush()</strong>.</p>
+<dd><p>Alias of <code class="docutils literal"><span class="pre">api.flush()</span></code>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -455,19 +470,21 @@ The default index is minus one, which means the last item on the list of files.<
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Object:</th><td class="field-body"><strong>vars</strong>: List of all variables available in the interactive namespace.</td>
 </tr>
+<tr class="field-even field"><th class="field-name">Object:</th><td class="field-body"><strong>compression</strong>: Dictionary that contains dataset compression parameters.</td>
+</tr>
 </tbody>
 </table>
 <p class="rubric">Methods</p>
 <dl class="method">
 <dt id="ui.Interface.add">
 <code class="descname">add</code><span class="sig-paren">(</span><em>filename</em>, <em>mode='a'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#Interface.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.Interface.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias of <strong>api.add()</strong>.</p>
+<dd><p>Alias of <code class="docutils literal"><span class="pre">api.add()</span></code>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="ui.Interface.clear">
 <code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/ui.html#Interface.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ui.Interface.clear" title="Permalink to this definition">¶</a></dt>
-<dd><p>Alias of <strong>api.clear()</strong>.</p>
+<dd><p>Alias of <code class="docutils literal"><span class="pre">api.clear()</span></code>.</p>
 </dd></dl>
 
 </dd></dl>
